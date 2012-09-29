@@ -1,0 +1,6 @@
+AddHandler mod_python .py
+PythonHandler bhu
+DirectoryIndex bhu.py
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/rss/bhu/bhu.py
+RewriteRule (.*) /rss/bhu/bhu.py/$1

@@ -1,0 +1,6 @@
+AddHandler mod_python .py
+PythonHandler pday
+DirectoryIndex pday.py
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/rss/pday/pday.py
+RewriteRule (.*) /rss/pday/pday.py/$1

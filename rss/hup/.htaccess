@@ -1,0 +1,6 @@
+AddHandler mod_python .py
+PythonHandler hup
+DirectoryIndex hup.py
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/rss/hup/hup.py
+RewriteRule (.*) /rss/hup/hup.py/$1
