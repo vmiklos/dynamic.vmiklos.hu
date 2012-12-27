@@ -1,5 +1,5 @@
-AddHandler mod_python .py
-PythonHandler hup
+AddHandler wsgi-script .py
+Options +ExecCGI
 DirectoryIndex hup.py
 RewriteEngine on
 RewriteCond %{REQUEST_URI} !^/rss/hup/hup.py
