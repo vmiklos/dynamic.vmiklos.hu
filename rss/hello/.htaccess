@@ -1,0 +1,6 @@
+AddHandler wsgi-script .py
+DirectoryIndex hello.py
+Options +ExecCGI
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/rss/hello/hello.py
+RewriteRule (.*) /rss/hello/hello.py/$1
