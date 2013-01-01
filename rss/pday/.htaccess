@@ -1,5 +1,5 @@
-AddHandler mod_python .py
-PythonHandler pday
+AddHandler wsgi-script .py
+Options +ExecCGI
 DirectoryIndex pday.py
 RewriteEngine on
 RewriteCond %{REQUEST_URI} !^/rss/pday/pday.py

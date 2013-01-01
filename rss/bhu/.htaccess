@@ -1,5 +1,5 @@
-AddHandler mod_python .py
-PythonHandler bhu
+AddHandler wsgi-script .py
+Options +ExecCGI
 DirectoryIndex bhu.py
 RewriteEngine on
 RewriteCond %{REQUEST_URI} !^/rss/bhu/bhu.py
