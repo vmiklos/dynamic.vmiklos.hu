@@ -44,8 +44,7 @@ class Rss:
 		ret.append("</channel>\n</rss>")
 		output = "".join(ret)
 		status = '200 OK'
-		response_headers = [('Content-type', 'application/xml'),
-				('Content-Length', str(len(output)))]
+		response_headers = [('Content-type', 'application/xml')]
 		self.start_response(status, response_headers)
 		return output.encode('utf-8')
 
