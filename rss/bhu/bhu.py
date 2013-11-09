@@ -54,7 +54,7 @@ def application(environ, start_response):
 
 	for i in feed.feed.entries:
 		node = Node()
-		if re.sub(r'(.*) \((.*)\)', r'\2', i.title.strip()) == "XXX":
+		if re.sub(r'(.*) \((.*)\)', r'\2', i.title.strip()).startswith("XXX"):
 			continue
 		node.title = cgi.escape(re.sub(r'(.*) \((.*)\)', r'[\2] \1', i.title.strip()))
 		node.description = cgi.escape(i.summary_detail.value)
