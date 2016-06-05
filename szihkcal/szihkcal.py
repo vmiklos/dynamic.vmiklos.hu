@@ -44,7 +44,7 @@ class MyCalendar(calendar.LocaleHTMLCalendar):
         """
         v = []
         a = v.append
-        a('<table border="1" cellpadding="0" cellspacing="0" class="month">')
+        a('<table class="month">')
         a('\n')
         a(self.formatmonthname(theyear, themonth, withyear=withyear))
         a('\n')
@@ -90,9 +90,14 @@ def formatszihkcal():
         td.day {
             text-align: center;
         }
+        table, td, th {
+            border: 1px solid;
+            border-spacing: 0;
+        }
         </style>
+        <title>SZIHK naptár</title>
     </head>
-    <body>""")
+    <body>""".encode('utf-8'))
     now = time.localtime()
     html = cal.formatmonth(now.tm_year, now.tm_mon).encode('utf-8')
     ret.append(html)
