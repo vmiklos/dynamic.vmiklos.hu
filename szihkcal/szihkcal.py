@@ -86,6 +86,7 @@ def formatszihkcal():
     <html>
     <head>
         <meta charset="utf-8" />
+        <!-- Source code: https://github.com/vmiklos/dynamic.vmiklos.hu -->
         <style>
         td.day {
             text-align: center;
