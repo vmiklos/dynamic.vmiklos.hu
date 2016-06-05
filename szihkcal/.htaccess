@@ -1,0 +1,6 @@
+AddHandler wsgi-script .py
+DirectoryIndex szihkcal.py
+Options +ExecCGI
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/szihkcal/szihkcal.py
+RewriteRule (.*) /szihkcal/szihkcal.py/$1
