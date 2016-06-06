@@ -7,6 +7,7 @@
 #
 
 import calendar
+import cgi
 import locale
 import random
 import sys
@@ -86,7 +87,10 @@ def formatszihkcal():
     <html>
     <head>
         <meta charset="utf-8" />
-        <!-- Source code: https://github.com/vmiklos/dynamic.vmiklos.hu -->
+        <!--
+        Source code: https://github.com/vmiklos/dynamic.vmiklos.hu
+        Usage: /?seed=value - seeds random with the provided value
+        -->
         <style>
         td.day {
             text-align: center;
@@ -112,6 +116,10 @@ def application(environ, start_response):
     This is used by mod_wsgi.
     """
     status = '200 OK'
+    parameters = cgi.parse_qs(environ.get('QUERY_STRING', ''))
+    if 'seed' in parameters:
+        seed = parameters['seed'][0]
+        random.seed(seed)
     output = formatszihkcal()
 
     response_headers = [('Content-type', 'text/html')]
@@ -119,7 +127,9 @@ def application(environ, start_response):
 
     return [output]
 
-if __name__ == "__main__":
-    print(formatszihkcal())
+if __name__ == '__main__':
+    from wsgiref.simple_server import make_server
+    srv = make_server('localhost', 8080, application)
+    srv.serve_forever()
 
 # vim:set shiftwidth=4 softtabstop=4 expandtab:
