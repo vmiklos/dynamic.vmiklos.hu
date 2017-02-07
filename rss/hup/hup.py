@@ -64,7 +64,7 @@ def application(environ, start_response):
 			continue
 		# strip the feedburner ad at the end of the page
 		node.description = cgi.escape(i.summary_detail.value.split('<img src="http://feed')[0])
-		node.link = re.sub('/([0-9])', r'/node/\1', i.id.split(' ')[0])
+		node.link =  "https://hup.hu/node/" + i.id.split(' ')[0]
 		node.pubdate = i.updated
 		rss.items.append(node)
 	return [rss.output()]
